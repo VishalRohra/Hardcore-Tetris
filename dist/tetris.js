@@ -196,11 +196,11 @@ var boxBorderColor = 'rgba(255,255,255,0.5)';
 
 
 // Game speed
-var defaultInterval = 600;
+var defaultInterval = 500;
 
 
 // Level update interval 
-var levelInterval = 120 * 1000; 
+var levelInterval = 12 * 1000; 
 
 
 
@@ -517,11 +517,15 @@ Tetris.prototype = {
 
 			views.setScore(this.score);
 			views.setReward(reward);
+			
+			this.level+=1;
+			this.interval = calcIntervalByLevel(this.level);
+			views.setLevel(this.level);
 
 		}
 	},
 	// Check and update game level
-	_checkLevel:function(){
+	/*_checkLevel:function(){
 		var currentTime = new Date().getTime();
 		if (currentTime - this.levelTime > consts.LEVEL_INTERVAL){
 			this.level+=1;
@@ -529,7 +533,7 @@ Tetris.prototype = {
 			views.setLevel(this.level);
 			this.levelTime = currentTime;
 		}
-	}
+	}*/
 }
 
 
