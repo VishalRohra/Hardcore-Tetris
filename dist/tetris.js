@@ -483,7 +483,7 @@ Tetris.prototype = {
 		if (this.currentTime - this.prevTime > this.interval ){
 			this._update();
 			this.prevTime = this.currentTime;
-			this._checkLevel();
+			//this._checkLevel();
 		}
 		if (!this.isGameOver){
 			window.requestAnimationFrame(utils.proxy(this._refresh,this));	
